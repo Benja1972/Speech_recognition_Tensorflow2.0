@@ -26,6 +26,30 @@ Sound samples are processed to MFCCs and used as input matrix of shape (16,44)
 
 Model is composed of two Dense layers with Dropouts for regularization 
 
+```shell
+Model: "sequential_22"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+flatten_16 (Flatten)         (None, 528)               0         
+_________________________________________________________________
+dense_66 (Dense)             (None, 256)               135424    
+_________________________________________________________________
+dropout_44 (Dropout)         (None, 256)               0         
+_________________________________________________________________
+dense_67 (Dense)             (None, 256)               65792     
+_________________________________________________________________
+dropout_45 (Dropout)         (None, 256)               0         
+_________________________________________________________________
+dense_68 (Dense)             (None, 2)                 514       
+=================================================================
+Total params: 201,730
+Trainable params: 201,730
+Non-trainable params: 0
+_________________________________________________________________
+
+```
+
 ## Validation 
 ![validation graph](im/validation.png)
 
