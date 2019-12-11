@@ -17,7 +17,7 @@ file in this folder for full details. Its original location was at
 
 ## Sound samples
 Sound samples is processed to MFCCs and used as input matrix of shape (16,44) 
-![one](im/one.png =150x) ![two](im/two.png =150x) 
+![one](im/one.png =150x){:height="36px" width="36px"} ![two](im/two.png )  
 
 
 ## Model
