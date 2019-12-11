@@ -16,7 +16,7 @@ file in this folder for full details. Its original location was at
 
 
 ## Sound samples
-Sound samples is processed to MFCCs and used as input matrix of shape (16,44) 
+Sound samples are processed to MFCCs and used as input matrix of shape (16,44) 
 
 <img src="im/one.png" height="300"> <img src="im/two.png" height="300">
 
