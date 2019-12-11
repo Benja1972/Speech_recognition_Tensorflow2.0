@@ -1,4 +1,4 @@
-Spoken words recognition with TensorFlow
+Spoken words recognition with TensorFlow 2.0
 ========================================
 
 ## Speech Commands Data Set v0.02
@@ -17,6 +17,8 @@ file in this folder for full details. Its original location was at
 
 ## Sound samples
 Sound samples is processed to MFCCs and used as input matrix of shape (16,44) 
+![one](im/one.png) 
+![two](im/two.png) 
 
 
 ## Model
