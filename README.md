@@ -51,5 +51,9 @@ _________________________________________________________________
 ```
 
 ## Validation 
-![validation graph](im/validation.png)
+![validation graph](im/acc_valid.png)
+
+Confusion matrix
+
+![validation graph](im/confuss.png)
 

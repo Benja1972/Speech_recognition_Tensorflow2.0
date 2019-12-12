@@ -15,7 +15,7 @@ DUR_WAV = 22050
 
 NUM_MFCC = 12
 
-words = ['one', 'two'] #, 'three', 'four', 'five'
+words = ['one', 'two', 'three', 'four', 'five']
 
 
 df  = pd.DataFrame()
@@ -25,7 +25,7 @@ for wr in words:
     flph = join("../data",wr)
 
     wf = [f for f in glob.glob(join(flph,"*.wav"))]
-    wf = sample(wf,800) ####### REMOVE ###############
+    #wf = sample(wf,1000) ####### REMOVE ###############
 
     w_df = pd.DataFrame({'file':wf, 'labels':[wr]*len(wf)})
     
@@ -63,8 +63,9 @@ y = np.array(df['labels'].tolist())
 
 ## Normalization (<--??? https://www.kaggle.com/c/freesound-audio-tagging/discussion/54082)
 #
-#~ mean = np.mean(X, axis=2)
-#~ std = np.std(X, axis=2)
+#~ mean = np.mean(X, axis=2, keepdims=True)
+#~ std = np.std(X, axis=2, keepdims=True)
+#~ X = (X - mean)/std
 #~ for i in range(X.shape[2]): 
     #~ X[:,:,i] = (X[:,:,i]-mean)/std 
 
@@ -104,8 +105,8 @@ if True:
     model.compile(loss='categorical_crossentropy', metrics=['accuracy'], optimizer='adam')
 
     history = model.fit(X_train, y_train, 
-                        batch_size=32, 
-                        epochs=30, 
+                        batch_size=100, 
+                        epochs=60, 
                         validation_data=(X_test, y_test))
     
     ## ==  Verify
@@ -129,8 +130,17 @@ if True:
     ax2.set_ylabel('Loss')
     ax2.set_xlabel('Epoch')
     ax2.legend(['Train', 'Val'], loc='upper left')
+    
+
+    from mlxtend.plotting import plot_confusion_matrix
+    from sklearn.metrics import confusion_matrix
+
+    y_pred = model.predict_classes(X_test)
+
+    mat = confusion_matrix(np.argmax(y_test, axis=1), y_pred)
+    plot_confusion_matrix(conf_mat=mat, 
+                          #figsize=(12, 12), 
+                          class_names = words, 
+                          show_normed=False)
+
     plt.show()
-
-
-
-
